@@ -1,6 +1,6 @@
 package ru.itis.math;
 
-public class NumbersUtil {
+public class NumbersUtil implements NumbersToBooleanMapper {
     public boolean isPrime(int number) {
         if (number == 0 || number == 1) {
             throw new IncorrectNumberException();
@@ -24,5 +24,10 @@ public class NumbersUtil {
             b = tmp;
         }
         return a;
+    }
+
+    @Override
+    public boolean map(int value) {
+        return isPrime(value);
     }
 }
